@@ -9,11 +9,13 @@
 # def prastevila(stevila):
 #     if je_prastevilo(n)
 def je_prastevilo(n):
-    for i in range(2, n):
+    for i in range(2, n): fbjsnvkjs
         if n % i == 0:
             return False
     return True
 
 for x in range(2, 201):
-    if je_prastevilo(x):
-        print(y)
+    
+      vsdjhbc
+      
+      bgsuj

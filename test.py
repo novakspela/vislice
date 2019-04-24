@@ -8,8 +8,8 @@
 #  seznam = []
 # def prastevila(stevila):
 #     if je_prastevilo(n)
-def nskljfnv(n):
-    for i in range(2, n):
+def je_prastevilo(n):
+    for i in range(2, n): fbjsnvkjs
         if n % i == 0:
         
 
@@ -24,3 +24,7 @@ bjdksbnc
 
 vmclksd
 sod
+    
+      vsdjhbc
+      
+      bgsuj

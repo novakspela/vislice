@@ -6,6 +6,7 @@ PONOVLJENA_CRKA = 'O'
 NAPACNA_CRKA = '-'
 ZMAGA = 'W'
 PORAZ = 'X'
+ZACETEK = 'S'
 
 
 class Igra:
@@ -69,30 +70,34 @@ with open("u:\\repozitorij\\vislice\\besede.txt", "r", encoding = "utf-8") as da
 def nova_igra():
     return Igra(random.choice(bazen_besed))
     
+class Vislice:
+
+    def __init__(self):
+        self.igre = {}
+    
+    def prost_id_igre(self):
+        if len(self.igre) == 0:
+            return 0
+        else:
+            return max(self.igre.keys()) + 1
+    
+    def nova_igra(self):
+        id_igre = self.prost_id_igre()
+        igra = nova_igra()
+        self.igre[id_igre] = (igra, ZACETEK)
+        return id_igre
+
+    def ugibaj(self, id_igre, crka):
+        igra = self.igre[id_igre][0]
+        novo_stanje = igra.ugibaj(crka)
+        self.igre[id_igre] = (igra, novo_stanje)
+        return      
 
 
-print(bazen_besed[:5])
+vislice = Vislice()
+moj_id_igre = vislice.nova_igra()
+print(vislice.igre[moj_id_igre])
+vislice.ugibaj(moj_id_igre, 'A')
+print(vislice.igre[moj_id_igre])
+print(vislice.igre)
 
-# testno_geslo = 'požrtvovalnost'.upper()
-# testne_crke = ["A", "E", "O", "P"]
-# zmagovalne_crke = [x for x in testno_geslo]
-# igra = Igra(testno_geslo, testne_crke)
-# print(igra.napacne_crke())
-# print(igra.pravilne_crke())
-# print(igra.stevilo_napak())
-# print(igra.zmaga())
-# zmagana_igra = Igra(testno_geslo, zmagovalne_crke)
-# print(zmagana_igra.zmaga())
-# print(igra.poraz())
-# print(igra.pravilni_del_gesla())
-# print(igra.nepravilni_ugibi())
-# poskus = igra.ugibaj("r")
-# print(poskus)
-# print(igra.pravilni_del_gesla())
-# poskus = igra.ugibaj("e")
-# print(poskus)
-# print(igra.pravilni_del_gesla())
-# poskus = igra.ugibaj("x")
-# print(poskus)
-# print(igra.pravilni_del_gesla())
-# print(igra.napacne_crke())
